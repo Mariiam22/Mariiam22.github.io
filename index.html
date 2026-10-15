@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariam Emad · Mimi</title>
+  <meta name="description" content="Mariam Emad (Mimi): Senior Account Executive managing 360° digital and OOH campaigns for brands across Egypt, KSA, Kuwait and Jordan.">
+  <meta property="og:title" content="Mariam Emad · Mimi">
+  <meta property="og:description" content="360° account management, brand strategy and campaign delivery across Egypt, KSA, Kuwait and Jordan.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Pinyon+Script&family=DM+Sans:opsz,wght@9..40,300..600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --panel: #151315;
+      --white: #ffffff;
+      --pink: #ff9cc2;
+      --rose: #ff4f8b;
+      --muted: #a69ca2;
+      --line: rgba(255, 255, 255, .12);
+      --serif: "Playfair Display", Georgia, serif;
+      --script: "Pinyon Script", cursive;
+      --sans: "DM Sans", system-ui, sans-serif;
+      --pad: clamp(16px, 4vw, 72px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::selection { background: var(--rose); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    .wrap { width: 100%; padding: 0 var(--pad); }
+    .screen { min-height: 100vh; min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 120px 0 96px; }
+
+    /* Progress bar */
+    .progress { position: fixed; top: 0; left: 0; height: 4px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--rose), var(--pink), var(--white)); z-index: 30; }
+
+    /* Nav */
+    .nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 22px; background: rgba(21, 19, 21, .75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 10px 40px -16px rgba(0, 0, 0, .8); width: max-content; max-width: calc(100vw - 32px); }
+    .logo { font-family: var(--script); font-size: 30px; line-height: 1; margin-right: 14px; color: var(--pink); }
+    .nav a.link { font-size: 14px; padding: 9px 14px; border-radius: 999px; color: var(--muted); transition: background .2s, color .2s; }
+    .nav a.link:hover { background: rgba(255,255,255,.08); color: var(--white); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; background: var(--white); color: var(--black); font-size: 15px; font-weight: 500; border: 0; cursor: pointer; transition: transform .3s cubic-bezier(.3,1.6,.5,1), background .25s, box-shadow .25s; }
+    .btn:hover { transform: translateY(-3px) rotate(-1.5deg); background: var(--rose); color: var(--white); }
+    .btn.soft { background: transparent; color: var(--white); box-shadow: inset 0 0 0 1.5px var(--white); }
+    .btn.soft:hover { background: var(--white); color: var(--black); box-shadow: none; }
+    .nav .btn { padding: 10px 18px; font-size: 14px; }
+
+    /* Blobs */
+    .blobs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .14; animation: float 18s ease-in-out infinite alternate; }
+    .blob.b1 { width: 46vw; height: 46vw; background: var(--pink); top: -12vw; right: -8vw; }
+    .blob.b2 { width: 36vw; height: 36vw; background: var(--pink); opacity: .14; bottom: -10vw; left: -8vw; animation-delay: -6s; }
+    .blob.b3 { width: 26vw; height: 26vw; background: var(--white); opacity: .06; top: 40%; left: 40%; animation-delay: -12s; }
+    @keyframes float { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(4vw,-3vw) scale(1.1); } 100% { transform: translate(-3vw,3vw) scale(.95); } }
+
+    /* Hero */
+    .hero { overflow: hidden; }
+    .hero .wrap { position: relative; z-index: 1; }
+    .hello { font-family: var(--script); font-size: clamp(40px, 5vw, 78px); color: var(--pink); line-height: 1; transform: rotate(-4deg); display: inline-block; margin-bottom: 1vw; }
+    .name { font-family: var(--serif); font-weight: 500; font-size: clamp(64px, 15.5vw, 300px); line-height: .84; letter-spacing: -.035em; }
+    .name .row { display: block; overflow: hidden; padding-bottom: .04em; }
+    .name .row span { display: inline-block; transform: translateY(105%); animation: rise 1.1s cubic-bezier(.2,.8,.2,1) forwards; }
+    .name .row:nth-child(2) span { animation-delay: .15s; }
+    .name em { font-style: italic; font-weight: 400; color: var(--rose); }
+    .name .tail { font-size: .32em; font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--muted); vertical-align: top; margin-left: .3em; position: relative; top: .5em; }
+    @keyframes rise { to { transform: none; } }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-top: 4vw; flex-wrap: wrap; }
+    .hero-sub { font-size: clamp(17px, 1.5vw, 22px); max-width: 560px; }
+    .hero-sub b { font-weight: 600; color: var(--pink); }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .badge { position: absolute; right: var(--pad); top: 15vh; width: clamp(120px, 13vw, 200px); aspect-ratio: 1; z-index: 2; }
+    .badge svg { width: 100%; height: 100%; animation: spin 22s linear infinite; }
+    .badge .core { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--script); font-size: clamp(30px, 3.4vw, 54px); color: #fff; }
+    .badge .disc { position: absolute; inset: 22%; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--pink), var(--rose)); box-shadow: 0 16px 40px -12px var(--rose); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .facts { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip { background: rgba(255,255,255,.05); backdrop-filter: blur(8px); border: 1px solid var(--line); padding: 10px 16px; border-radius: 999px; font-size: 14px; display: inline-flex; gap: 8px; align-items: center; }
+    .chip i { font-style: normal; color: var(--rose); }
+    .sticker { position: absolute; font-size: clamp(22px, 2.6vw, 42px); color: rgba(255,255,255,.35); z-index: 1; animation: bob 4s ease-in-out infinite; pointer-events: none; }
+    @keyframes bob { 50% { transform: translateY(-14px) rotate(12deg); } }
+    .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .scroll-hint::after { content: ""; width: 1px; height: 36px; background: linear-gradient(var(--rose), transparent); animation: drip 1.8s ease-in-out infinite; }
+    @keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+    /* Ribbon marquee */
+    .ribbon { background: var(--panel); color: var(--white); border-block: 1px solid var(--line); padding: 18px 0; overflow: hidden; transform: rotate(-2deg) scale(1.04); margin: -24px 0; position: relative; z-index: 3; box-shadow: 0 20px 40px -24px #000; }
+    .ribbon.alt { background: var(--white); color: var(--black); transform: rotate(1.5deg) scale(1.04); }
+    .track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+    .ribbon.alt .track { animation-direction: reverse; }
+    .track span { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2.6vw, 38px); white-space: nowrap; padding: 0 28px; display: inline-flex; align-items: center; gap: 56px; }
+    .track span::after { content: "✿"; font-style: normal; font-size: .7em; color: var(--pink); }
+    .ribbon.alt .track span::after { color: var(--black); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Section titles */
+    .kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); font-weight: 600; margin-bottom: 20px; }
+    .kicker::before { content: "♡"; letter-spacing: 0; font-size: 16px; }
+    h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(44px, 7.4vw, 140px); line-height: .92; letter-spacing: -.03em; }
+    h2 em { font-style: italic; font-weight: 400; color: var(--rose); }
+    h2 .script { font-family: var(--script); font-weight: 400; color: var(--rose); letter-spacing: 0; font-size: 1.05em; }
+    .title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: clamp(40px, 5vw, 80px); }
+    .title-row p { max-width: 420px; color: var(--muted); font-size: 17px; }
+
+    /* About */
+    .about { background: var(--panel); }
+    .about-text { font-family: var(--serif); font-size: clamp(28px, 3.9vw, 68px); line-height: 1.18; letter-spacing: -.015em; max-width: 1500px; }
+    .about-text .hl { background: linear-gradient(transparent 86%, var(--pink) 86%, var(--pink) 94%, transparent 94%); background-size: 0 100%; background-repeat: no-repeat; transition: background-size 1.2s cubic-bezier(.2,.8,.2,1) .3s; }
+    .about-text.in .hl { background-size: 100% 100%; }
+    .about-text i { color: var(--pink); }
+    .markets { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 28px); margin-top: clamp(48px, 6vw, 96px); }
+    .stamp { background: var(--black); border: 1px solid var(--line); padding: 14px 14px 22px; border-radius: 6px; box-shadow: 0 18px 40px -22px rgba(0,0,0,.8); transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
+    .stamp:nth-child(odd) { transform: rotate(-3deg); }
+    .stamp:nth-child(even) { transform: rotate(2.5deg); }
+    .stamp:hover { transform: rotate(0) scale(1.05); }
+    .stamp .art { aspect-ratio: 4 / 3; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 3.6vw, 64px); color: var(--black); }
+    .stamp:nth-child(odd) .art { background: var(--white); }
+    .stamp:nth-child(even) .art { background: #222; color: var(--white); }
+    .stamp p { font-family: var(--script); font-size: clamp(22px, 2vw, 32px); text-align: center; margin-top: 10px; color: var(--pink); line-height: 1.1; }
+
+    /* Experience */
+    .jobs { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(16px, 2vw, 32px); }
+    .job { border-radius: 36px; padding: clamp(28px, 3.5vw, 56px); position: relative; overflow: hidden; min-height: 52vh; display: flex; flex-direction: column; justify-content: space-between; transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
+    .job:hover { transform: translateY(-8px) rotate(-.6deg); }
+    .job.now { background: var(--white); color: var(--black); }
+    .job.now .tag { background: transparent; border-color: rgba(0,0,0,.2); }
+    .job.now .ladder span { background: rgba(0,0,0,.06); }
+    .job.now .tag, .job.now .role-hl { color: var(--rose); }
+    .job.past { background: var(--panel); border: 1px solid var(--line); }
+    .job .tag { align-self: flex-start; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.5); }
+    .job.past .tag { background: rgba(255,255,255,.06); border-color: var(--line); }
+    .job h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(40px, 5.4vw, 96px); line-height: .95; letter-spacing: -.02em; margin: 6vh 0 18px; }
+    .job.past h3 { font-size: clamp(34px, 3.8vw, 64px); }
+    .ladder { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 15px; }
+    .ladder span { padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.2); }
+    .ladder span.up { background: var(--black) !important; color: var(--white); font-weight: 600; }
+    .job.past .ladder span { background: rgba(255,255,255,.08); }
+    .job p { margin-top: 20px; font-size: 16px; opacity: .88; max-width: 600px; }
+    .job .deco { position: absolute; right: -2vw; bottom: -6vw; font-family: var(--script); font-size: clamp(160px, 20vw, 360px); line-height: 1; opacity: .14; pointer-events: none; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.6vw, 24px); }
+    .skill { background: var(--panel); border: 1px solid var(--line); border-radius: 30px; padding: clamp(26px, 2.6vw, 40px); min-height: 300px; display: flex; flex-direction: column; transition: transform .45s cubic-bezier(.3,1.6,.5,1), border-color .3s; }
+    .skill:hover { transform: translateY(-6px) rotate(1deg); border-color: rgba(255,255,255,.5); }
+    .skill:nth-child(3) { background: var(--white); color: var(--black); --line: rgba(0,0,0,.12); }
+    .skill:nth-child(3) .emoji { background: rgba(0,0,0,.06); }
+    .skill .emoji { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .skill h4 { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 2.2vw, 36px); line-height: 1.05; margin: 24px 0 16px; }
+    .skill ul { list-style: none; font-size: 15px; margin-top: auto; }
+    .skill li { padding: 9px 0; border-top: 1px solid var(--line); }
+
+    /* Work */
+    .work { background: var(--panel); }
+    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 48px; }
+    .tab { cursor: pointer; padding: 12px 22px; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; font-size: 15px; transition: all .25s cubic-bezier(.3,1.6,.5,1); }
+    .tab:hover { transform: translateY(-2px); border-color: var(--white); }
+    .tab.active { background: var(--white); border-color: var(--white); color: var(--black); transform: rotate(-2deg); }
+    .group { margin-bottom: 64px; }
+    .group-title { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+    .group-title h4 { font-family: var(--script); font-weight: 400; font-size: clamp(38px, 3.4vw, 56px); color: var(--pink); line-height: 1; }
+    .group-title small { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: clamp(14px, 1.6vw, 24px); align-items: start; }
+    .posts.grid3 { grid-template-columns: repeat(3, 1fr); }
+    .posts .instagram-media { min-width: 0 !important; width: 100% !important; max-width: none !important; margin: 0 !important; border-radius: 22px !important; border: 0 !important; box-shadow: 0 18px 40px -26px rgba(0,0,0,.9) !important; }
+    .posts iframe { border-radius: 22px !important; }
+
+    /* Brands */
+    .brands-sec { background: var(--black); overflow: hidden; }
+    .brands-sec h2 em, .brands-sec h2 .script { color: var(--pink); }
+    .brands-sec .kicker { color: var(--pink); }
+    .brands-sec .title-row p { color: rgba(255,255,255,.6); }
+    .cloud { display: flex; flex-wrap: wrap; gap: clamp(10px, 1.2vw, 18px); align-items: center; }
+    .bn { font-family: var(--serif); font-size: clamp(30px, 4.4vw, 80px); line-height: 1.1; padding: .08em .45em; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.22); transition: all .35s cubic-bezier(.3,1.6,.5,1); position: relative; }
+    .bn:nth-child(3n+2) { font-style: italic; }
+    .bn small { font-family: var(--sans); font-style: normal; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; vertical-align: super; margin-left: 6px; opacity: .6; }
+    .bn:hover { transform: rotate(-3deg) scale(1.05); }
+    .bn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .bn.has-work { cursor: pointer; }
+    .bn.has-work::after { content: "♡"; position: absolute; top: -.1em; right: -.05em; font-size: .35em; color: var(--pink); }
+
+    /* Education */
+    .edu .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 96px); align-items: center; }
+    .diploma { background: var(--white); color: var(--black); border-radius: 40px; padding: clamp(32px, 4vw, 64px); position: relative; box-shadow: 0 30px 80px -30px rgba(255,255,255,.2); transform: rotate(2deg); transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
+    .diploma:hover { transform: rotate(0); }
+    .diploma::before { content: ""; position: absolute; inset: 14px; border: 1.5px dashed var(--pink); border-radius: 30px; pointer-events: none; }
+    .diploma .cap { font-size: 48px; }
+    .diploma h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 3.4vw, 56px); line-height: 1; margin: 18px 0 10px; }
+    .diploma p { color: #6b6468; font-size: 17px; }
+    .majors { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+    .majors span { padding: 10px 18px; border-radius: 999px; background: var(--black); color: var(--pink); font-weight: 600; font-size: 15px; }
+    .seal { position: absolute; right: -20px; top: -24px; width: 96px; height: 96px; border-radius: 50%; background: var(--rose); color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--script); font-size: 26px; line-height: 1; transform: rotate(12deg); box-shadow: 0 10px 24px -10px var(--rose); }
+
+    /* Contact */
+    .contact { background: var(--black); text-align: center; overflow: hidden; }
+        .contact h2 { font-size: clamp(64px, 14vw, 260px); }
+    .contact h2 em, .contact h2 .script { color: var(--rose); }
+    .contact .lead { font-size: clamp(17px, 1.6vw, 22px); max-width: 600px; margin: 24px auto 0; color: var(--muted); }
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 44px; }
+    footer { background: var(--black); border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding: 22px 0; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* Sparkle cursor trail */
+    .spark { position: fixed; pointer-events: none; z-index: 50; font-size: 14px; color: rgba(255,255,255,.8); animation: sparkle .9s ease-out forwards; }
+    @keyframes sparkle { to { transform: translate(var(--dx), var(--dy)) scale(.2) rotate(120deg); opacity: 0; } }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .stamp.reveal.in:nth-child(odd) { transform: rotate(-3deg); }
+    .stamp.reveal.in:nth-child(even) { transform: rotate(2.5deg); }
+    .stamp.reveal.in:hover { transform: rotate(0) scale(1.05); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .name .row span { transform: none; }
+      .about-text .hl { background-size: 100% 100%; }
+    }
+
+    @media (max-width: 960px) {
+      .nav a.link { display: none; }
+      .jobs, .edu .wrap { grid-template-columns: 1fr; }
+      .job { min-height: 0; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .markets { grid-template-columns: repeat(2, 1fr); }
+      .badge { top: 96px; }
+    }
+    @media (max-width: 600px) {
+      .screen { padding: 100px 0 72px; }
+      .skills, .posts.grid3 { grid-template-columns: 1fr; }
+      .badge { width: 104px; right: 12px; top: 84px; }
+      .name .tail { display: block; margin: .3em 0 0; top: 0; }
+      .seal { right: -6px; width: 80px; height: 80px; font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="nav">
+    <a href="#top" class="logo">Mimi</a>
+    <a href="#about" class="link">About</a>
+    <a href="#experience" class="link">Experience</a>
+    <a href="#work" class="link">Work</a>
+    <a href="#brands" class="link">Brands</a>
+    <a href="#contact" class="btn">Say hi ♡</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="screen hero" id="top">
+    <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+    <span class="sticker" style="top:22%;left:46%">✿</span>
+    <span class="sticker" style="top:68%;left:6%;animation-delay:-1.5s">♡</span>
+    <span class="sticker" style="top:30%;right:22%;animation-delay:-2.5s">✦</span>
+    <span class="sticker" style="bottom:20%;right:10%;animation-delay:-.8s">❀</span>
+
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <defs><path id="circ" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+        <text font-family="DM Sans, sans-serif" font-size="15" font-weight="600" letter-spacing="5" fill="#ffffff">
+          <textPath href="#circ">SENIOR ACCOUNT EXECUTIVE ✿ NEW CAIRO ✿ </textPath>
+        </text>
+      </svg>
+      <div class="disc"></div>
+      <div class="core">Mimi</div>
+    </div>
+
+    <div class="wrap">
+      <span class="hello">hello, I'm</span>
+      <h1 class="name">
+        <span class="row"><span>Mariam</span></span>
+        <span class="row"><span><em>Emad</em></span></span>
+      </h1>
+      <div class="hero-bottom">
+        <div>
+          <p class="hero-sub reveal"><b>Senior Account Executive</b> leading 360° brand campaigns, from brief to execution, for regional accounts across Egypt, KSA, Kuwait &amp; Jordan.</p>
+          <div class="hero-cta reveal">
+            <a href="#work" class="btn">See my work ✦</a>
+            <a href="https://www.linkedin.com/in/mariam-emad-343b98218" target="_blank" rel="noopener" class="btn soft">LinkedIn</a>
+          </div>
+        </div>
+        <div class="facts reveal">
+          <span class="chip"><i>⌂</i> New Cairo</span>
+          <span class="chip"><i>✎</i> GUC graduate</span>
+          <span class="chip"><i>✈</i> EG · KSA · KW · JO</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true"><div class="track" id="ribbon1"></div></div>
+
+  <!-- About -->
+  <section class="screen about" id="about">
+    <div class="wrap">
+      <p class="kicker reveal">About me</p>
+      <p class="about-text reveal">
+        I'm a Senior Account Executive managing <span class="hl">regional accounts</span> across Egypt, KSA, Kuwait and Jordan. I develop and execute <i>strategic marketing initiatives</i>, collaborate with cross-functional teams, and deliver <span class="hl">insight-driven campaigns</span> that strengthen brand positioning and drive <i>business growth.</i>
+      </p>
+      <div class="markets">
+        <div class="stamp reveal"><div class="art">EG</div><p>Egypt</p></div>
+        <div class="stamp reveal"><div class="art">KSA</div><p>Saudi Arabia</p></div>
+        <div class="stamp reveal"><div class="art">KW</div><p>Kuwait</p></div>
+        <div class="stamp reveal"><div class="art">JO</div><p>Jordan</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="screen" id="experience">
+    <div class="wrap">
+      <div class="title-row">
+        <div>
+          <p class="kicker reveal">Experience</p>
+          <h2 class="reveal">Where I've <span class="script">grown</span></h2>
+        </div>
+        <p class="reveal">From digital accounts to leading regional, 360° campaigns.</p>
+      </div>
+      <div class="jobs">
+        <article class="job now reveal">
+          <span class="tag">Current ✦</span>
+          <div>
+            <h3>Muller's</h3>
+            <div class="ladder"><span>Account Executive</span>→<span class="up">Senior Account Executive</span></div>
+            <p>Main point of contact for regional clients across Egypt, KSA, Jordan and Kuwait. I manage accounts with a 360° approach across digital and out-of-home, from strategy and creative direction to shoots, influencers and media buying.</p>
+          </div>
+          <span class="deco" aria-hidden="true">M</span>
+        </article>
+        <article class="job past reveal">
+          <span class="tag">Previously</span>
+          <div>
+            <h3>Creative Advertising Thinking</h3>
+            <div class="ladder"><span>Digital Account Executive</span></div>
+            <p>Managed digital accounts and social campaigns, coordinating content calendars and deliverables between clients and creative teams.</p>
+          </div>
+          <span class="deco" aria-hidden="true">C</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I do -->
+  <section class="screen" style="padding-top:0">
+    <div class="wrap">
+      <div class="title-row">
+        <div>
+          <p class="kicker reveal">What I do</p>
+          <h2 class="reveal">Brief to <em>launch,</em><br>end to end</h2>
+        </div>
+        <p class="reveal">Every part of a campaign, handled with care and a lot of coordination.</p>
+      </div>
+      <div class="skills">
+        <div class="skill reveal">
+          <span class="emoji">💬</span>
+          <h4>Client leadership</h4>
+          <ul>
+            <li>Main point of contact across four markets</li>
+            <li>Smooth coordination on every account</li>
+            <li>360° digital &amp; OOH campaigns</li>
+          </ul>
+        </div>
+        <div class="skill reveal">
+          <span class="emoji">🗓️</span>
+          <h4>Strategy &amp; planning</h4>
+          <ul>
+            <li>Marketing, brand &amp; communication strategies</li>
+            <li>Monthly marketing &amp; social media calendars</li>
+          </ul>
+        </div>
+        <div class="skill reveal">
+          <span class="emoji">✨</span>
+          <h4>Campaign management</h4>
+          <ul>
+            <li>Campaigns from brief to execution</li>
+            <li>Creative direction, timelines &amp; deliverables</li>
+            <li>Influencer campaigns</li>
+          </ul>
+        </div>
+        <div class="skill reveal">
+          <span class="emoji">🎬</span>
+          <h4>Production &amp; shoots</h4>
+          <ul>
+            <li>Shoots, team coordination &amp; deliverables</li>
+            <li>Agency PPMs, shoots &amp; post-production</li>
+          </ul>
+        </div>
+        <div class="skill reveal">
+          <span class="emoji">🔍</span>
+          <h4>Research &amp; insights</h4>
+          <ul>
+            <li>Market research &amp; competitor analysis</li>
+            <li>Audience insights &amp; performance opportunities</li>
+          </ul>
+        </div>
+        <div class="skill reveal">
+          <span class="emoji">📊</span>
+          <h4>Media &amp; teamwork</h4>
+          <ul>
+            <li>Media buying &amp; budget allocation</li>
+            <li>Creative, content, design &amp; media teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon alt" aria-hidden="true"><div class="track" id="ribbon2"></div></div>
+
+  <!-- Work -->
+  <section class="screen work" id="work">
+    <div class="wrap">
+      <div class="title-row">
+        <div>
+          <p class="kicker reveal">Selected work</p>
+          <h2 class="reveal">Campaigns I've <span class="script">delivered</span></h2>
+        </div>
+        <p class="reveal">Social grids, statics and reels from accounts I've managed. Pick a brand ↓</p>
+      </div>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <div id="work-panel"></div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="screen brands-sec" id="brands">
+    <div class="wrap">
+      <div class="title-row">
+        <div>
+          <p class="kicker reveal">Brands</p>
+          <h2 class="reveal">Brands I've <em>worked with</em></h2>
+        </div>
+        <p class="reveal">Food, home care, FMCG, real estate and education. Tap a ♡ brand to see the work.</p>
+      </div>
+      <div class="cloud" id="cloud"></div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="screen edu" id="education">
+    <div class="wrap">
+      <div>
+        <p class="kicker reveal">Education</p>
+        <h2 class="reveal">Where it all <span class="script">started</span></h2>
+      </div>
+      <div class="diploma reveal">
+        <span class="seal">GUC<br>grad</span>
+        <span class="cap">🎓</span>
+        <h3>German University in Cairo</h3>
+        <p>Faculty of Management &amp; Technology, double major</p>
+        <div class="majors">
+          <span>Strategic Management</span>
+          <span>Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="screen contact" id="contact">
+    <div class="blobs"><div class="blob b1" style="top:auto;bottom:-20vw;right:20vw"></div></div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <p class="kicker reveal">Contact</p>
+      <h2 class="reveal">Let's <span class="script">talk</span> ♡</h2>
+      <p class="lead reveal">Open to new opportunities, collaborations, and a good coffee in New Cairo.</p>
+      <div class="contact-links reveal">
+        <a href="mailto:mariiamemadd@gmail.com" class="btn">Email me ✉</a>
+        <a href="tel:+201141110015" class="btn soft">Call 0114 111 0015</a>
+        <a href="https://wa.me/201141110015" target="_blank" rel="noopener" class="btn soft">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/mariam-emad-343b98218" target="_blank" rel="noopener" class="btn soft">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Mariam Emad · Mimi</span>
+      <span>Made with ♡ in New Cairo</span>
+    </div>
+  </footer>
+
+  <script>
+    // Instagram post IDs per brand. Grids are listed in posting order.
+    const WORK = {
+      "Mazaya": [
+        { label: "Grid", kind: "grid", ids: ["C95nRxzicqS", "C95nW_VCw8E", "C95nczDih8g"] },
+        { label: "Grid", kind: "grid", ids: ["C9HZe9ACbAo", "C9HZmUPCYuI", "C9HZr-3iM5q"] },
+        { label: "Grid", kind: "grid", ids: ["C9ABxzJCbOa", "C9AB2ysC6QD", "C9ACJQBCa5U"] },
+        { label: "Grid", kind: "grid", ids: ["C8IXnrsKPot", "C8IXphvqiAP"] }
+      ],
+      "Pizza Hut KSA": [
+        { label: "Posts", kind: "p", ids: ["DBeSFiaAnJl", "DBzA9waAV9t", "DBgK2nCAKDO", "DBzEganA6Ee"] }
+      ],
+      "Oxi Kuwait": [
+        { label: "Static", kind: "p", ids: ["DPlL5Y6DdLs", "DS8MJHPD8vz", "DRzjkNzjDmx", "DQzZZojDB6A", "DSFy2iHDyEE", "DTqUv4EjVgr"] },
+        { label: "Reels", kind: "reel", ids: ["DPipMnqCJre", "DRcLDKbCddi"] }
+      ],
+      "Oxi Jordan": [
+        { label: "Static", kind: "p", ids: ["DPqVWt1Adf0", "DTNpQXjDdtt", "DQd8QX7j3da", "DQW26l6jU_9"] },
+        { label: "Reels", kind: "reel", ids: ["DRj1a-5k6TZ"] }
+      ],
+      "Oxi Soft": [
+        { label: "Reels", kind: "reel", ids: ["DeeFFI5xjOB"] }
+      ],
+      "Larch": [
+        { label: "Copy", kind: "reel", ids: ["DU8J0KYCJeZ"] },
+        { label: "Designs", kind: "p", ids: ["DVO2mLCjHFK", "DbDrg6eDDWj"] }
+      ]
+    };
+
+    const brands = [
+      ["Mazaya", ""], ["Pizza Hut", "KSA"], ["Oxi", "KSA"], ["Oxi", "Kuwait"], ["Oxi", "Jordan"],
+      ["Oxi Soft", ""], ["Spiro Spathis", ""], ["Richland", ""], ["Larch", ""], ["Jazzeel", ""],
+      ["Brika", ""], ["Barsha", ""], ["Nefertari", ""], ["Lycée", ""], ["SSM", ""]
+    ];
+
+    // Work tabs
+    const igUrl = (kind, id) => `https://www.instagram.com/${kind === "reel" ? "reel" : "p"}/${id}/`;
+    const embed = (kind, id) =>
+      `<blockquote class="instagram-media" data-instgrm-permalink="${igUrl(kind, id)}?utm_source=ig_embed" data-instgrm-version="14"><a href="${igUrl(kind, id)}" target="_blank" rel="noopener">View on Instagram</a></blockquote>`;
+
+    let igLoaded = false;
+    function processEmbeds() {
+      if (window.instgrm) return window.instgrm.Embeds.process();
+      if (igLoaded) return;
+      igLoaded = true;
+      const sc = document.createElement("script");
+      sc.src = "https://www.instagram.com/embed.js";
+      sc.async = true;
+      document.body.appendChild(sc);
+    }
+
+    const tabs = document.getElementById("tabs");
+    const panel = document.getElementById("work-panel");
+    function showBrand(name) {
+      tabs.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.brand === name));
+      panel.innerHTML = WORK[name].map(g => {
+        // Instagram shows the newest post first, so reverse grids to match the profile layout
+        const ids = g.kind === "grid" ? [...g.ids].reverse() : g.ids;
+        const unit = g.kind === "reel" ? "reel" : "post";
+        return `<div class="group"><div class="group-title"><h4>${g.label}</h4><small>${ids.length} ${unit}${ids.length > 1 ? "s" : ""}</small></div>
+          <div class="posts${g.kind === "grid" ? " grid3" : ""}">${ids.map(id => embed(g.kind, id)).join("")}</div></div>`;
+      }).join("");
+      processEmbeds();
+    }
+    tabs.innerHTML = Object.keys(WORK).map(n => `<button class="tab" role="tab" data-brand="${n}">${n}</button>`).join("");
+    tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) showBrand(b.dataset.brand); });
+    showBrand(Object.keys(WORK)[0]);
+
+    // Brand cloud
+    const cloud = document.getElementById("cloud");
+    cloud.innerHTML = brands.map(([name, market]) => {
+      const full = market ? `${name} ${market}` : name;
+      const key = WORK[full] ? full : WORK[name] ? name : null;
+      return `<span class="bn reveal${key ? " has-work" : ""}"${key ? ` data-work="${key}"` : ""}>${name}${market ? `<small>${market}</small>` : ""}</span>`;
+    }).join("");
+    cloud.addEventListener("click", e => {
+      const b = e.target.closest(".has-work");
+      if (!b) return;
+      showBrand(b.dataset.work);
+      document.getElementById("work").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Ribbons
+    const names = [...new Set(brands.map(b => b[0]))];
+    const words = ["Account Management", "Brand Strategy", "Campaigns", "Shoots", "Influencers", "Media Buying", "Social Calendars", "OOH"];
+    const fill = (id, list) => document.getElementById(id).innerHTML = [...list, ...list].map(n => `<span>${n}</span>`).join("");
+    fill("ribbon1", words);
+    fill("ribbon2", names);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll progress
+    const bar = document.getElementById("progress");
+    addEventListener("scroll", () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    }, { passive: true });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 6) * 70}ms`;
+      io.observe(el);
+    });
+
+    // Sparkle trail (desktop only)
+    const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!calm && matchMedia("(pointer: fine)").matches) {
+      const shapes = ["✦", "♡", "✿", "·"];
+      let last = 0;
+      addEventListener("pointermove", e => {
+        const now = performance.now();
+        if (now - last < 45) return;
+        last = now;
+        const s = document.createElement("span");
+        s.className = "spark";
+        s.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+        s.style.left = e.clientX + "px";
+        s.style.top = e.clientY + "px";
+        s.style.setProperty("--dx", (Math.random() * 40 - 20) + "px");
+        s.style.setProperty("--dy", (Math.random() * 30 + 10) + "px");
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 900);
+      });
+    }
+  </script>
+</body>
+</html>
