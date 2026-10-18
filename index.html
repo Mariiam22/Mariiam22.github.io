@@ -166,6 +166,14 @@
     .posts.grid3 { grid-template-columns: repeat(3, 1fr); }
     .posts .instagram-media { min-width: 0 !important; width: 100% !important; max-width: none !important; margin: 0 !important; border-radius: 22px !important; border: 0 !important; box-shadow: 0 18px 40px -26px rgba(0,0,0,.9) !important; }
     .posts iframe { border-radius: 22px !important; }
+    .posts.imgs { grid-template-columns: repeat(var(--n), 1fr); }
+    @media (max-width: 800px) { .posts.imgs { grid-template-columns: 1fr 1fr; } }
+    .shot { display: block; padding: 0; border: 0; background: var(--panel); border-radius: 22px; overflow: hidden; cursor: zoom-in; box-shadow: 0 18px 40px -26px rgba(0,0,0,.9); }
+    .shot img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+    .shot:hover img { transform: scale(1.04); }
+    .lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 720px); max-height: 92vh; margin: auto; }
+    .lightbox::backdrop { background: rgba(10,10,10,.9); backdrop-filter: blur(6px); }
+    .lightbox img { display: block; max-width: 100%; max-height: 92vh; border-radius: 18px; }
 
     /* Brands */
     .brands-sec { background: var(--black); overflow: hidden; }
@@ -482,6 +490,8 @@
     </div>
   </footer>
 
+  <dialog class="lightbox" id="lightbox"><img alt="Design"></dialog>
+
   <script>
     // Instagram post IDs per brand. Grids are listed in posting order.
     const WORK = {
@@ -508,19 +518,33 @@
       "Larch": [
         { label: "Copy", kind: "reel", ids: ["DU8J0KYCJeZ"] },
         { label: "Designs", kind: "p", ids: ["DVO2mLCjHFK", "DbDrg6eDDWj"] }
+      ],
+      // kind "img": local design files in work/<folder>/
+      "SSM": [
+        { label: "Designs", kind: "img", ids: ["ssm/01", "ssm/02", "ssm/03"] }
+      ],
+      "Brika": [
+        { label: "Designs", kind: "img", ids: ["brika/01", "brika/02", "brika/03"] }
+      ],
+      "Nefertari": [
+        { label: "Designs", kind: "img", ids: ["nefertari/01", "nefertari/02", "nefertari/03", "nefertari/04"] }
+      ],
+      "Lycée": [
+        { label: "Designs", kind: "img", ids: ["lycee/01", "lycee/02", "lycee/03", "lycee/04"] }
       ]
     };
 
     const brands = [
       ["Mazaya", ""], ["Pizza Hut", "KSA"], ["Oxi", "KSA"], ["Oxi", "Kuwait"], ["Oxi", "Jordan"],
       ["Oxi Soft", ""], ["Spiro Spathis", ""], ["Richland", ""], ["Larch", ""], ["Jazzeel", ""],
-      ["Brika", ""], ["Barsha", ""], ["Nefertari", ""], ["Lycée", ""], ["SSM", ""]
+      ["Brika", ""], ["Nefertari", ""], ["Lycée", ""], ["SSM", ""]
     ];
 
     // Work tabs
     const igUrl = (kind, id) => `https://www.instagram.com/${kind === "reel" ? "reel" : "p"}/${id}/`;
-    const embed = (kind, id) =>
-      `<blockquote class="instagram-media" data-instgrm-permalink="${igUrl(kind, id)}?utm_source=ig_embed" data-instgrm-version="14"><a href="${igUrl(kind, id)}" target="_blank" rel="noopener">View on Instagram</a></blockquote>`;
+    const embed = (kind, id) => kind === "img"
+      ? `<button class="shot" data-src="work/${id}.jpg"><img src="work/${id}.jpg" alt="Design" loading="lazy"></button>`
+      : `<blockquote class="instagram-media" data-instgrm-permalink="${igUrl(kind, id)}?utm_source=ig_embed" data-instgrm-version="14"><a href="${igUrl(kind, id)}" target="_blank" rel="noopener">View on Instagram</a></blockquote>`;
 
     let igLoaded = false;
     function processEmbeds() {
@@ -540,12 +564,20 @@
       panel.innerHTML = WORK[name].map(g => {
         // Instagram shows the newest post first, so reverse grids to match the profile layout
         const ids = g.kind === "grid" ? [...g.ids].reverse() : g.ids;
-        const unit = g.kind === "reel" ? "reel" : "post";
+        const unit = g.kind === "reel" ? "reel" : g.kind === "img" ? "design" : "post";
         return `<div class="group"><div class="group-title"><h4>${g.label}</h4><small>${ids.length} ${unit}${ids.length > 1 ? "s" : ""}</small></div>
-          <div class="posts${g.kind === "grid" ? " grid3" : ""}">${ids.map(id => embed(g.kind, id)).join("")}</div></div>`;
+          <div class="posts${g.kind === "grid" ? " grid3" : g.kind === "img" ? " imgs" : ""}" style="--n:${ids.length}">${ids.map(id => embed(g.kind, id)).join("")}</div></div>`;
       }).join("");
-      processEmbeds();
+      if (WORK[name].some(g => g.kind !== "img")) processEmbeds();
     }
+    const lightbox = document.getElementById("lightbox");
+    panel.addEventListener("click", e => {
+      const s = e.target.closest(".shot");
+      if (!s) return;
+      lightbox.querySelector("img").src = s.dataset.src;
+      lightbox.showModal();
+    });
+    lightbox.addEventListener("click", () => lightbox.close());
     tabs.innerHTML = Object.keys(WORK).map(n => `<button class="tab" role="tab" data-brand="${n}">${n}</button>`).join("");
     tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) showBrand(b.dataset.brand); });
     showBrand(Object.keys(WORK)[0]);
